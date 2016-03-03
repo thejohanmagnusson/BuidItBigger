@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         new GetJokeAsync(new IJokeListener() {
             @Override
             public void jokeFetched(String joke) {
-                if(joke.equals(""))
+                if(joke == null)
                     joke = getString(R.string.no_joke);
 
                 Intent intent = new Intent(getApplicationContext(), JokeActivity.class).putExtra(JokeActivity.JOKE_KEY, joke);

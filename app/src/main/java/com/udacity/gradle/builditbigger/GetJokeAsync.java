@@ -44,7 +44,7 @@ public class GetJokeAsync {
                 return myApiService.getJoke().execute().getData();
             } catch (IOException e){
                 Log.e("JokeTask:doInBackground","Error: " + e.getMessage());
-                return "";
+                return null;
             }
         }
 
