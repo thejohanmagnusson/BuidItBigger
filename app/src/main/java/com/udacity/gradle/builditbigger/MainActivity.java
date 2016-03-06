@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.udacity.android.androidlib.JokeActivity;
 
@@ -40,9 +39,6 @@ public class MainActivity extends ActionBarActivity implements OnFetchJokeListen
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-
-    }
 
     @Override
     public void onFetchJoke() {
