@@ -10,14 +10,13 @@ import android.view.View;
 import com.udacity.android.androidlib.JokeActivity;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnFetchJokeListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,9 +41,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        new GetJokeAsync(new IJokeListener() {
+
+    }
+
+    @Override
+    public void onFetchJoke() {
+        new GetJokeAsync(new OnGceJokeListener() {
             @Override
-            public void jokeFetched(String joke) {
+            public void onJokeFetched(String joke) {
+                MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+
+                if(fragment != null)
+                    fragment.hideProgressbar();
+
                 if(joke == null)
                     joke = getString(R.string.no_joke);
 

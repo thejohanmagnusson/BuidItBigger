@@ -13,11 +13,11 @@ import com.udacity.builditbigger.backend.myApi.MyApi;
 import java.io.IOException;
 
 public class GetJokeAsync {
-    private IJokeListener jokeListener;
-    private static MyApi myApiService = null;
+    private OnGceJokeListener mJokeListener;
+    private static MyApi mApiService = null;
 
-    public GetJokeAsync(IJokeListener jokeListener){
-        this.jokeListener = jokeListener;
+    public GetJokeAsync(OnGceJokeListener mJokeListener){
+        this.mJokeListener = mJokeListener;
     }
 
     public void execute(){
@@ -28,7 +28,7 @@ public class GetJokeAsync {
 
         @Override
         protected String doInBackground(Void... params) {
-            if(myApiService == null){
+            if(mApiService == null){
                 MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                         .setRootUrl("http://10.0.2.2:8080/_ah/api/")
                         .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
@@ -37,11 +37,11 @@ public class GetJokeAsync {
                                 abstractGoogleClientRequest.setDisableGZipContent(true);
                             }
                         });
-                myApiService = builder.build();
+                mApiService = builder.build();
             }
 
             try{
-                return myApiService.getJoke().execute().getData();
+                return mApiService.getJoke().execute().getData();
             } catch (IOException e){
                 Log.e("JokeTask:doInBackground","Error: " + e.getMessage());
                 return null;
@@ -52,7 +52,7 @@ public class GetJokeAsync {
         protected void onPostExecute(String joke) {
             super.onPostExecute(joke);
 
-            jokeListener.jokeFetched(joke);
+            mJokeListener.onJokeFetched(joke);
         }
     }
 }

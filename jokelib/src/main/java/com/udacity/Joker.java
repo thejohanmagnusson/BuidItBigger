@@ -12,7 +12,7 @@ public class Joker {
             case 1:
                 return "What is the difference between Android 2.1 and 2.2?\n\n" +"6 months";
             case 2:
-                return "An Android app walks into a bar. Bartender asks, \"Can I get you a drink?\\n\n" + "The app looks disappointed and says, \"That wasnt my intent.\"";
+                return "An Android app walks into a bar. Bartender asks, \"Can I get you a drink?\n\n" + "The app looks disappointed and says, \"That wasnt my intent.\"";
             case 3:
                 return "Two Android phone are walking in the desert. Which of them is 2.2?\n\n"+ "The one who called \"Froyo\".";
             case 4:

@@ -5,7 +5,7 @@ import android.test.AndroidTestCase;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class TestGetJokeAsyncTask extends AndroidTestCase implements IJokeListener{
+public class TestGetJokeAsyncTask extends AndroidTestCase implements OnGceJokeListener {
     CountDownLatch latch;
     String joke = null;
 
@@ -23,7 +23,7 @@ public class TestGetJokeAsyncTask extends AndroidTestCase implements IJokeListen
     }
 
     @Override
-    public void jokeFetched(String joke) {
+    public void onJokeFetched(String joke) {
         this.joke = joke;
         latch.countDown();
     }
