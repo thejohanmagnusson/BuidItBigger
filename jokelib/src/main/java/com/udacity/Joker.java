@@ -20,7 +20,7 @@ public class Joker {
             case 5:
                 return "Eight bytes walk into a bar.  The bartender asks, \"Can I get you anything?\"\n\n" + "\"Yeah,\" reply the bytes.  \"Make us a double.\"";
             case 6:
-                return "How many programmers does it take to change a light bulb?\n\n" + "None – Its a hardware problem";
+                return "How many programmers does it take to change a light bulb?\n\n" + "None. Its a hardware problem";
             case 7:
                 return "Why do programmers always mix up Halloween and Christmas?\n\n" + "Because Oct 31 equals Dec 25";
             case 8:

@@ -1,7 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
