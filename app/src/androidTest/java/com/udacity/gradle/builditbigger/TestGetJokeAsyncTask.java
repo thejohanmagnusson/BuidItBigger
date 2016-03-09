@@ -13,7 +13,7 @@ public class TestGetJokeAsyncTask extends AndroidTestCase implements OnGceJokeLi
         try{
             latch = new CountDownLatch(1);
             new GetJokeAsync(this).execute();
-            latch.await(5, TimeUnit.SECONDS);
+            latch.await(15, TimeUnit.SECONDS);
 
             assertNotNull("Fetching joke failed, joke is null", joke);
 

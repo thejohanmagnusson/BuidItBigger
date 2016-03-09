@@ -17,3 +17,17 @@ allprojects {
         jcenter()
     }
 }
+
+//https://discussions.udacity.com/t/last-optional-step-how-to-start-an-external-module-task-from-the-root-build-gradle/24211/16
+//http://trickyandroid.com/gradle-tip-3-tasks-ordering/
+evaluationDependsOn ":app"
+evaluationDependsOn ":backend"
+
+project(":backend"){
+    appengine{
+        daemon true
+    }
+}
+
+task runMyGradle(dependsOn: ':backend:appengineRun'){}
+runMyGradle {}.finalizedBy(['app:connectedAndroidTest', ':backend:appengineStop'])
